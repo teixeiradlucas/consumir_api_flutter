@@ -1,4 +1,4 @@
-import 'package:consumir_api_flutter/app/presentation/home_page.dart';
+import 'package:consumir_api_flutter/home_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
