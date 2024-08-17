@@ -1,11 +1,4 @@
 class HistoricalModel {
-  final double close;
-  final String date;
-  final double high;
-  final double low;
-  final double open;
-  final int volume;
-
   HistoricalModel({
     required this.close,
     required this.date,
@@ -17,12 +10,18 @@ class HistoricalModel {
 
   factory HistoricalModel.fromJson(Map<String, dynamic> json) {
     return HistoricalModel(
-      close: json['close'].toDouble(),
-      date: json['date'],
-      high: json['high'].toDouble(),
-      low: json['low'].toDouble(),
-      open: json['open'].toDouble(),
-      volume: json['volume'],
+      close: (json['close'] as num).toDouble(),
+      date: json['date'] as String,
+      high: (json['high'] as num).toDouble(),
+      low: (json['low'] as num).toDouble(),
+      open: (json['open'] as num).toDouble(),
+      volume: json['volume'] as int,
     );
   }
+  final double close;
+  final String date;
+  final double high;
+  final double low;
+  final double open;
+  final int volume;
 }

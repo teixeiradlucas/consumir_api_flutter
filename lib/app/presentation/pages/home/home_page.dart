@@ -1,3 +1,4 @@
+import 'package:consumir_api_flutter/app/data/http/http_client.dart';
 import 'package:consumir_api_flutter/app/data/models/stock_model.dart';
 import 'package:consumir_api_flutter/app/data/repositories/stock_repository.dart';
 import 'package:flutter/material.dart';
@@ -7,10 +8,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final repository = StockRepository(client: HttpClient());
     return Scaffold(
       appBar: AppBar(title: const Text('Stocks')),
       body: FutureBuilder<List<StockModel>>(
-        future: StockRepository().getStocks(),
+        future: repository.getStocks(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return _buildLoading();
