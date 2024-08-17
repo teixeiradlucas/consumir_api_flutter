@@ -1,3 +1,5 @@
+// ignore_for_file: discarded_futures
+
 import 'package:consumir_api_flutter/app/data/http/http_client.dart';
 import 'package:consumir_api_flutter/app/data/models/stock_model.dart';
 import 'package:consumir_api_flutter/app/data/repositories/stock_repository.dart';
@@ -8,11 +10,10 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repository = StockRepository(client: HttpClient());
     return Scaffold(
       appBar: AppBar(title: const Text('Stocks')),
       body: FutureBuilder<List<StockModel>>(
-        future: repository.getStocks(),
+        future: getStocks(HttpClient()),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return _buildLoading();

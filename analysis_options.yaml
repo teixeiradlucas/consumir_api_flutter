@@ -10,6 +10,7 @@ analyzer:
     avoid_dynamic_calls: ignore
     close_sinks: ignore
     deprecated_member_use_from_same_package: ignore
+    discarded_futures: ignore
     library_private_types_in_public_api: ignore
     missing_required_param: error
     missing_return: error
